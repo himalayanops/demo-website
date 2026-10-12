@@ -12,13 +12,7 @@ A responsive static website for HimalayanOps built with plain HTML, CSS, and Jav
 - `scanner.css` and `scanner.js` - scoped scanner presentation and interactions
 - `data/demo-scans.json` - fictional sample scan records used by the demo
 
-## Run locally
-
-Open `index.html` directly in a browser, or run:
-
-```bash
-python -m http.server 8000
-```
+## GitHub Pages Deployment for Demo
 
 The site is ready for GitHub Pages deployment.
 
