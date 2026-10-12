@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore a safe, frontend-only simulated network scanner demonstration from HimalayanOps." />
+    <meta name="theme-color" content="#0a1f2d" />
+    <title>Network Scanner Demo | HimalayanOps</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="scanner.css" />
+  </head>
+  <body class="scanner-page">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html#home" aria-label="HimalayanOps home">
+          <span class="brand-mark">H</span>
+          <span class="brand-text">HimalayanOps</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="primary-nav" class="main-nav" aria-label="Main navigation">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#services">Services</a>
+          <a href="index.html#certifications">Certifications</a>
+          <a href="network-scanner.html" aria-current="page">Network Scanner</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="scanner-main">
+      <section class="scanner-intro container">
+        <div>
+          <a class="back-link" href="index.html#services">&larr; HimalayanOps services</a>
+          <span class="eyebrow">Security tools / Network visibility</span>
+          <h1>Network Scanner</h1>
+          <p class="scanner-lede">Explore how a network scan report is structured using safe, fictional sample data.</p>
+        </div>
+        <div class="demo-seal" aria-label="This is a simulated demonstration">LOCAL DEMO<br /><strong>NO SCANNING</strong></div>
+      </section>
+
+      <div class="container scanner-content">
+        <div class="demo-banner" role="note">
+          <span class="demo-banner-mark" aria-hidden="true">i</span>
+          <strong>DEMO MODE — SIMULATED RESULTS — NO NETWORK SCAN PERFORMED</strong>
+        </div>
+
+        <div class="scanner-tabs" role="tablist" aria-label="Scanner demo views">
+          <button class="scanner-tab active" id="tab-scan" type="button" role="tab" aria-selected="true" aria-controls="panel-scan" tabindex="0" data-tab="scan">Scan</button>
+          <button class="scanner-tab" id="tab-results" type="button" role="tab" aria-selected="false" aria-controls="panel-results" tabindex="-1" data-tab="results">Results</button>
+          <button class="scanner-tab" id="tab-history" type="button" role="tab" aria-selected="false" aria-controls="panel-history" tabindex="-1" data-tab="history">History <span class="history-count" id="historyCount">0</span></button>
+        </div>
+
+        <section class="scanner-panel" id="panel-scan" role="tabpanel" aria-labelledby="tab-scan" tabindex="0">
+          <div class="panel-heading">
+            <div><span class="eyebrow">Run a local demonstration</span><h2>Configure sample report</h2></div>
+            <span class="local-only"><i></i> Runs in this browser</span>
+          </div>
+          <form id="scanForm" novalidate>
+            <div class="scan-fields">
+              <div class="scan-field">
+                <label for="target">Target hostname or IPv4 address</label>
+                <input id="target" name="target" type="text" value="demo.example.invalid" maxlength="253" autocomplete="off" spellcheck="false" aria-describedby="targetHelp targetError" />
+                <small id="targetHelp">Validation is local. The entered target is never contacted or saved.</small>
+                <span class="field-error" id="targetError" role="alert"></span>
+              </div>
+              <div class="scan-field mode-field">
+                <label for="scanMode">Demo profile</label>
+                <select id="scanMode" name="scanMode">
+                  <option value="quick">Quick Scan</option>
+                  <option value="service">Service Detection</option>
+                  <option value="full">Full Scan</option>
+                </select>
+              </div>
+            </div>
+            <div class="scan-actions">
+              <button class="button primary scan-button" id="startScan" type="submit"><span class="button-icon" aria-hidden="true">&#9654;</span> Start Demo Scan</button>
+              <span class="scan-local-note">No network requests are made.</span>
+            </div>
+          </form>
+          <div class="scan-status" id="scanStatus" role="status" aria-live="polite">Sample data is ready. Choose a profile to preview its report.</div>
+          <div class="progress-track" id="progressTrack" hidden><span id="progressBar"></span></div>
+          <div class="data-error" id="dataError" role="alert" hidden>Sample data could not be loaded. Serve this folder over HTTP and reload the demo.</div>
+        </section>
+
+        <section class="scanner-panel results-panel" id="panel-results" role="tabpanel" aria-labelledby="tab-results" tabindex="0" hidden>
+          <div class="demo-banner results-demo-banner" role="note"><span class="demo-banner-mark" aria-hidden="true">i</span><strong>DEMO MODE — SIMULATED RESULTS — NO NETWORK SCAN PERFORMED</strong></div>
+          <div class="panel-heading results-heading">
+            <div><span class="eyebrow">Sample report</span><h2 id="resultsTitle">No demo results yet</h2><p id="resultsSubtitle">Start a demo scan to display fictional sample records.</p></div>
+            <div class="export-actions"><button class="utility-button" id="exportJson" type="button" disabled>Download JSON</button><button class="utility-button" id="exportTxt" type="button" disabled>Download TXT</button></div>
+          </div>
+          <div class="summary-grid" id="summaryGrid" aria-label="Sample report summary">
+            <div class="summary-item"><span>Hosts found</span><strong id="hostsFound">—</strong></div>
+            <div class="summary-item"><span>Open ports</span><strong id="openPorts">—</strong></div>
+            <div class="summary-item"><span>Services detected</span><strong id="servicesDetected">—</strong></div>
+            <div class="summary-item"><span>Sample duration</span><strong id="scanDuration">—</strong></div>
+          </div>
+          <div class="results-toolbar"><span id="resultCount">Sample rows will appear here</span><span class="sample-label">Fictional data</span></div>
+          <div class="table-scroll" tabindex="0" aria-label="Scrollable sample scan results table">
+            <table>
+              <thead><tr><th scope="col">IP / Hostname</th><th scope="col">Port</th><th scope="col">Protocol</th><th scope="col">Service</th><th scope="col">Version</th><th scope="col">State</th></tr></thead>
+              <tbody id="resultsBody"><tr class="empty-row"><td colspan="6">No results to display. Run the local demo to load sample records.</td></tr></tbody>
+            </table>
+          </div>
+          <p class="table-footnote">All records are fictional examples from a local JSON file. They do not describe the entered target.</p>
+        </section>
+
+        <section class="scanner-panel history-panel" id="panel-history" role="tabpanel" aria-labelledby="tab-history" tabindex="0" hidden>
+          <div class="panel-heading">
+            <div><span class="eyebrow">This browser only</span><h2>Recent demo sessions</h2><p>History stores the selected demo profile and sample summary only. Target values are not retained.</p></div>
+            <button class="utility-button danger-button" id="clearHistory" type="button">Clear history</button>
+          </div>
+          <div id="historyList" class="history-list" aria-live="polite"><p class="empty-history">No demo sessions yet.</p></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer"><div class="container footer-wrap"><p>&copy; <span id="year"></span> HimalayanOps. All rights reserved.</p><div class="footer-links"><a href="index.html#services">Services</a><a href="index.html#contact">Contact</a></div></div></footer>
+    <script src="script.js"></script>
+    <script src="scanner.js"></script>
+  </body>
+</html>

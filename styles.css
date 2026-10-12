@@ -15,6 +15,11 @@
   --container: 1180px;
 }
 
+.scanner-card { display: block; border-color: rgba(72,196,190,.24); text-decoration: none; transition: border-color .2s ease, background .2s ease; }
+.scanner-card:hover, .scanner-card:focus-visible { border-color: var(--primary); background: rgba(72,196,190,.1); }
+.metric-card.scanner-card strong { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.scanner-card strong span { color: var(--primary); font-size: 1rem; }
+.scanner-card p { color: var(--muted); font-size: .78rem; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; overflow-x: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body { font-family: "Segoe UI", Inter, "Helvetica Neue", Arial, sans-serif; background: radial-gradient(circle at top, rgba(72,196,190,.12), transparent 32%), linear-gradient(180deg, #061a22 0%, #0a2430 40%, #081d2a 100%); color: var(--text); line-height: 1.6; overflow-x: hidden; }

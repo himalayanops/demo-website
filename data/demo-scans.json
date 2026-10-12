@@ -1,0 +1,57 @@
+{
+  "notice": "DEMO MODE - SIMULATED RESULTS - NO NETWORK SCAN PERFORMED",
+  "simulated": true,
+  "samples": {
+    "quick": {
+      "durationSeconds": 1.2,
+      "hosts": [
+        {
+          "hostname": "demo.example.invalid",
+          "ip": "192.0.2.10",
+          "ports": [
+            { "port": 22, "protocol": "tcp", "service": "ssh", "version": "OpenSSH 9.6 (fictional sample)", "state": "open" },
+            { "port": 443, "protocol": "tcp", "service": "https", "version": "HTTPS (fictional sample)", "state": "open" }
+          ]
+        }
+      ]
+    },
+    "service": {
+      "durationSeconds": 2.4,
+      "hosts": [
+        {
+          "hostname": "demo.example.invalid",
+          "ip": "192.0.2.10",
+          "ports": [
+            { "port": 22, "protocol": "tcp", "service": "ssh", "version": "OpenSSH 9.6 (fictional sample)", "state": "open" },
+            { "port": 80, "protocol": "tcp", "service": "http", "version": "nginx 1.24 (fictional sample)", "state": "open" },
+            { "port": 443, "protocol": "tcp", "service": "https", "version": "nginx 1.24 TLS (fictional sample)", "state": "open" }
+          ]
+        }
+      ]
+    },
+    "full": {
+      "durationSeconds": 3.8,
+      "hosts": [
+        {
+          "hostname": "demo.example.invalid",
+          "ip": "192.0.2.10",
+          "ports": [
+            { "port": 22, "protocol": "tcp", "service": "ssh", "version": "OpenSSH 9.6 (fictional sample)", "state": "open" },
+            { "port": 53, "protocol": "tcp", "service": "domain", "version": "DNS service (fictional sample)", "state": "open" },
+            { "port": 80, "protocol": "tcp", "service": "http", "version": "nginx 1.24 (fictional sample)", "state": "open" },
+            { "port": 443, "protocol": "tcp", "service": "https", "version": "nginx 1.24 TLS (fictional sample)", "state": "open" },
+            { "port": 5432, "protocol": "tcp", "service": "postgresql", "version": "PostgreSQL 16 (fictional sample)", "state": "filtered" }
+          ]
+        },
+        {
+          "hostname": "edge.demo.example.invalid",
+          "ip": "198.51.100.22",
+          "ports": [
+            { "port": 443, "protocol": "tcp", "service": "https", "version": "HTTPS edge endpoint (fictional sample)", "state": "open" },
+            { "port": 8443, "protocol": "tcp", "service": "https-alt", "version": "HTTPS alternate (fictional sample)", "state": "open" }
+          ]
+        }
+      ]
+    }
+  }
+}
